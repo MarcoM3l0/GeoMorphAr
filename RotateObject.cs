@@ -1,15 +1,18 @@
 using UnityEngine;
+using System;
 
 public class RotateObject : MonoBehaviour
 {
+    public static event Action<RotateObject> OnAnyRotateObjectDisabled;
+
     public bool isRotating = false;
     public float rotationSpeed = 150f;
-    public Canvas canvaCube, canvaSphere, canvaTriangle, canvaBack;
 
     void Awake()
     {
         // Certifica-se de que o objeto não está rotacionando inicialmente
         isRotating = false;
+
     }
 
     // Atualiza a rotação do objeto a cada frame
@@ -43,5 +46,6 @@ public class RotateObject : MonoBehaviour
     {
         // Garante que a rotação esteja desativada quando o objeto for desativado
         StopRotation();
+        OnAnyRotateObjectDisabled?.Invoke(this);
     }
 }
