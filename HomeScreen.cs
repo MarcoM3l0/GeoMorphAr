@@ -12,8 +12,8 @@ public class HomeScreen : MonoBehaviour
     public void ClickButton()
     {
         // Desativa o canvas da tela inicial ao clicar no botão
-        canvaHomeScreen.enabled = false;
+        canvaHomeScreen.enabled = !canvaHomeScreen.enabled;
         // Ativa o canvas de volta
-        canvaBack.enabled = true;
+        canvaBack.enabled = !canvaBack.enabled;
     }
 }

@@ -13,8 +13,8 @@ public class BackToHomeScreen : MonoBehaviour
     public void ClickButton()
     {
         // Altera a visibilidade dos canvases
-        canvaHomeScreen.enabled = true;
-        canvaBack.enabled = false;
+        canvaHomeScreen.enabled = !canvaHomeScreen.enabled;
+        canvaBack.enabled = !canvaBack.enabled;
 
         // Desativa os objetos que devem ser descarregados
         foreach (GameObject obj in objectsToUnload)

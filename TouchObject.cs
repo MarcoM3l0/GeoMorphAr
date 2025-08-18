@@ -67,10 +67,10 @@ public class TouchObject : MonoBehaviour
     /// </summary>
     private void HideAllCanvases()
     {
-        canvasCube.enabled = false;
-        canvasSphere.enabled = false;
-        canvasTriangle.enabled = false;
-        canvaBack.enabled = true;
+        SetCanvasEnabled(canvasCube, false);
+        SetCanvasEnabled(canvasSphere, false);
+        SetCanvasEnabled(canvasTriangle, false);
+        SetCanvasEnabled(canvaBack, canvaBack != null && !canvaBack.enabled);
     }
 
     /// <summary>
@@ -90,6 +90,22 @@ public class TouchObject : MonoBehaviour
     private void HandleRotateObjectDisabled(RotateObject obj)
     {
         HideAllCanvases();
+    }
+
+    /// <summary>
+    /// Ativa ou desativa um <see cref="Canvas"/> de forma segura,
+    /// verificando se o objeto não foi destruído antes de acessar a propriedade.
+    /// </summary>
+    /// <param name="canvas">O componente Canvas a ser modificado.</param>
+    /// <param name="enabled">Define se o Canvas ficará habilitado (true) ou desabilitado (false).</param>
+    private void SetCanvasEnabled(Canvas canvas, bool enabled)
+    {
+        if (canvas != null && canvas.gameObject != null)
+        {
+            // Checa se não foi destruído antes de acessar
+            if (canvas)
+                canvas.enabled = enabled;
+        }
     }
 
 }
