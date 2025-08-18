@@ -63,6 +63,20 @@ public class ImageTracker : MonoBehaviour
                 arObject.SetActive(trackedImage.trackingState == TrackingState.Tracking);
             }
         }
+
+        // Remove o objeto AR quando a imagem não é mais rastreada
+        foreach (var trackedImagePair in eventArgs.removed)
+        {
+            ARTrackedImage trackedImage = trackedImagePair.Value;
+            string imageName = trackedImage.referenceImage.name;
+
+            if (ArObjects.TryGetValue(imageName, out GameObject arObject))
+            {
+                Destroy(arObject);
+                ArObjects.Remove(imageName);
+            }
+        }
+
     }
 
 }
