@@ -57,6 +57,23 @@ Servir como recurso complementar para o ensino de geometria, permitindo que estu
 
 ---
 
+## 📥 Download do App e Imagens
+
+Você pode baixar o **APK do GeoMorph AR** e as **imagens dos marcadores** neste link:  
+[📂 Google Drive – GeoMorph AR](https://drive.google.com/drive/folders/1w7Aj_QviHZH8n2Zk57pMu2fQIUdZGDQa)
+
+---
+
+## 🐞 Feedback e Relato de Bugs
+
+Encontrou algum problema ou tem sugestões para melhorar o projeto?  
+- Abra uma **Issue** na aba **Issues** deste repositório descrevendo o problema ou sugestão.  
+- Inclua, se possível, capturas de tela ou passos para reproduzir o erro.  
+
+Sua contribuição é muito importante para a evolução do projeto! 💡
+
+---
+
 ## 📚 Referências
 
 - [Shapes 3D – Geometry Learning (Apple)](https://apps.apple.com/us/app/shapes-3d-geometry-learning/id501650786) – acesso em 20 jul. 2025  
