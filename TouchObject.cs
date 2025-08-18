@@ -12,6 +12,13 @@ public class TouchObject : MonoBehaviour
     {
         // Inicializa os canvases como desativados
         HideAllCanvases();
+        RotateObject.OnAnyRotateObjectDisabled += HandleRotateObjectDisabled;
+    }
+
+    void OnDestroy()
+    {
+        // Remove o evento quando o objeto for destruído
+        RotateObject.OnAnyRotateObjectDisabled -= HandleRotateObjectDisabled;
     }
 
     void Update()
@@ -63,7 +70,7 @@ public class TouchObject : MonoBehaviour
         canvasCube.enabled = false;
         canvasSphere.enabled = false;
         canvasTriangle.enabled = false;
-        canvaBack.enabled = false;
+        canvaBack.enabled = true;
     }
 
     /// <summary>
@@ -73,6 +80,16 @@ public class TouchObject : MonoBehaviour
     {
         foreach (var rotObj in FindObjectsByType<RotateObject>(FindObjectsSortMode.None))
             rotObj.StopRotation();
+    }
+
+    /// <summary>
+    /// Responsável por esconder todos os canvases quando um objeto
+    /// Verifica se o objeto que foi desativado é um RotateObject através do evento
+    /// </summary>
+    /// <param name="obj">É o objeto RotateObject que foi desativado. </param>
+    private void HandleRotateObjectDisabled(RotateObject obj)
+    {
+        HideAllCanvases();
     }
 
 }
