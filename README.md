@@ -37,14 +37,7 @@ Servir como recurso complementar para o ensino de geometria, permitindo que estu
 - **C#** (scripts de interação)
 - Marcadores visuais para rastreamento (Image Target)
 
----
-
-## 🚀 Como Usar
-
-1. Clone este repositório ou baixe os scripts.  
-2. Importe para o seu projeto Unity com AR Foundation configurado.  
-3. Adicione os scripts aos objetos correspondentes na cena.  
-4. Configure os **marcadores visuais** para acionar os modelos 3D.  
+--- 
 
 > ⚠️ Este repositório não inclui modelos 3D ou assets de AR — apenas os **scripts**.
 
