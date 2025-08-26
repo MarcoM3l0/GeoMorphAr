@@ -12,6 +12,7 @@ public class TouchObject : MonoBehaviour
     {
         // Inicializa os canvases como desativados
         HideAllCanvases();
+        canvaBack.enabled = !canvaBack.enabled; // Ativa o canvas do botão "Back"
         RotateObject.OnAnyRotateObjectDisabled += HandleRotateObjectDisabled;
     }
 
@@ -70,7 +71,8 @@ public class TouchObject : MonoBehaviour
         SetCanvasEnabled(canvasCube, false);
         SetCanvasEnabled(canvasSphere, false);
         SetCanvasEnabled(canvasTriangle, false);
-        SetCanvasEnabled(canvaBack, canvaBack != null && !canvaBack.enabled);
+        if (canvaBack != null && canvaBack.enabled == false)
+            SetCanvasEnabled(canvaBack, true);
     }
 
     /// <summary>
@@ -100,11 +102,14 @@ public class TouchObject : MonoBehaviour
     /// <param name="enabled">Define se o Canvas ficará habilitado (true) ou desabilitado (false).</param>
     private void SetCanvasEnabled(Canvas canvas, bool enabled)
     {
+
         if (canvas != null && canvas.gameObject != null)
         {
             // Checa se não foi destruído antes de acessar
             if (canvas)
+            {
                 canvas.enabled = enabled;
+            }
         }
     }
 
